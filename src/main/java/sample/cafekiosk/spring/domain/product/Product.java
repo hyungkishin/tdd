@@ -1,8 +1,9 @@
-package sample.cafekiosk.spring.domain;
+package sample.cafekiosk.spring.domain.product;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import sample.cafekiosk.spring.domain.BaseEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

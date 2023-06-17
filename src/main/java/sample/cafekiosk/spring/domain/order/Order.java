@@ -1,4 +1,4 @@
-package sample.unit.order;
+package sample.cafekiosk.spring.domain.order;
 
 import lombok.Getter;
 import sample.unit.beverage.Beverage;

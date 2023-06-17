@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sample.unit.beverage.Americano;
 import sample.unit.beverage.Latte;
-import sample.unit.order.Order;
+import sample.cafekiosk.spring.domain.order.Order;
 
 import java.time.LocalDateTime;
 

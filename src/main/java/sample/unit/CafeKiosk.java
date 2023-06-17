@@ -2,7 +2,7 @@ package sample.unit;
 
 import lombok.Getter;
 import sample.unit.beverage.Beverage;
-import sample.unit.order.Order;
+import sample.cafekiosk.spring.domain.order.Order;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
