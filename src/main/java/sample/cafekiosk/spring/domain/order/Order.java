@@ -1,21 +1,25 @@
 package sample.cafekiosk.spring.domain.order;
 
+import lombok.AccessLevel;
 import lombok.Getter;
-import sample.unit.beverage.Beverage;
+import lombok.NoArgsConstructor;
+import sample.cafekiosk.spring.domain.BaseEntity;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Getter
-public class Order {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+public class Order extends BaseEntity {
 
-    private final LocalDateTime orderDateTime;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private final List<Beverage> beverages;
+    private String productNumber;
 
-    public Order(final LocalDateTime orderDateTime, final List<Beverage> beverages) {
-        this.orderDateTime = orderDateTime;
-        this.beverages = beverages;
-    }
+//    @Enumerated
 
 }
