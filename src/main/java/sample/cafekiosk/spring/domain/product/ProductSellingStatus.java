@@ -13,7 +13,7 @@ public enum ProductSellingStatus {
 
     HOLD("판매보류"),
 
-    SHOP_SELLING("판매중지");
+    STOP_SELLING("판매중지");
 
     private final String text;
 

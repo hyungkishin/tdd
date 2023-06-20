@@ -47,7 +47,7 @@ class ProductRepositoryTest {
         final Product 팥빙수 = Product.builder()
                 .productNumber("003")
                 .type(ProductType.HANDMADE)
-                .sellingStatus(ProductSellingStatus.SHOP_SELLING)
+                .sellingStatus(ProductSellingStatus.STOP_SELLING)
                 .name("팥빙수")
                 .price(7000)
                 .build();
@@ -66,6 +66,48 @@ class ProductRepositoryTest {
                         tuple("002", "카페라때", ProductSellingStatus.HOLD)
                 );
 
+    }
+
+
+    @Test
+    @DisplayName("상품번호 리스트로 상품들을 조회한다.")
+    void findAllByProductNumberIn() {
+        // given
+        final Product 아메리카노 = Product.builder()
+                .productNumber("001")
+                .type(ProductType.HANDMADE)
+                .sellingStatus(ProductSellingStatus.SELLING)
+                .name("아메리카노")
+                .price(4000)
+                .build();
+
+        final Product 카페라때 = Product.builder()
+                .productNumber("002")
+                .type(ProductType.HANDMADE)
+                .sellingStatus(ProductSellingStatus.HOLD)
+                .name("카페라때")
+                .price(4500)
+                .build();
+
+        final Product 팥빙수 = Product.builder()
+                .productNumber("003")
+                .type(ProductType.HANDMADE)
+                .sellingStatus(ProductSellingStatus.STOP_SELLING)
+                .name("팥빙수")
+                .price(7000)
+                .build();
+        productRepository.saveAll(List.of(아메리카노, 카페라때, 팥빙수));
+
+        // when
+        final List<Product> products = productRepository.findAllByProductNumberIn(List.of(아메리카노.getProductNumber(), 카페라때.getProductNumber()));
+
+        // then
+        assertThat(products).hasSize(2)
+                .extracting("productNumber", "name", "sellingStatus")
+                .containsExactlyInAnyOrder(
+                        tuple("001", "아메리카노", ProductSellingStatus.SELLING),
+                        tuple("002", "카페라때", ProductSellingStatus.HOLD)
+                );
     }
 
 }
