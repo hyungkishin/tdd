@@ -11,6 +11,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.List;
+
+import static sample.cafekiosk.spring.domain.product.ProductType.BAKERY;
+import static sample.cafekiosk.spring.domain.product.ProductType.BOTTLE;
 
 @Getter
 @NoArgsConstructor(access = lombok.AccessLevel.PROTECTED)
