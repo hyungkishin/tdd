@@ -44,7 +44,7 @@ class OrderStatisticsServiceTest {
     @Autowired
     private MailSendHistoryRepository mailSendHistoryRepository;
 
-    @MockBean
+    @MockBean // Spring Context 가 떠야 효과가 있는 것
     private MailSendClient mailSendClient;
 
     @AfterEach
