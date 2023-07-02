@@ -13,6 +13,7 @@ import sample.cafekiosk.spring.domain.history.mail.MailSendHistoryRepository;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -22,7 +23,6 @@ import static org.mockito.Mockito.when;
 class MailServiceTest {
 
     @Mock
-//    @Spy
     private MailSendClient mailSendClient;
 
     @Mock
@@ -35,13 +35,8 @@ class MailServiceTest {
     @Test
     void sendMail() {
         // given
-        when(mailSendClient.sendEmail(anyString(), anyString(), anyString(), anyString()))
-                .thenReturn(true);
-
-//        doReturn(true)
-//                .when(mailSendClient)
-//                .sendEmail(anyString(), anyString(), anyString(), anyString());
-
+        given(mailSendClient.sendEmail(anyString(), anyString(), anyString(), anyString()))
+                .willReturn(true);
         // when
         boolean result = mailService.sendMail("", "", "", "");
 
