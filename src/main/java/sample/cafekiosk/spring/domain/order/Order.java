@@ -63,4 +63,5 @@ public class Order extends BaseEntity {
     public static Order create(final List<Product> products, LocalDateTime registeredDateTime) {
         return new Order(products, registeredDateTime);
     }
+
 }
